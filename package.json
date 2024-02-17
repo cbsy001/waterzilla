@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "node app.js",
     "dev": "nodemon ./bin/www",
     "demo": "node demo",
-    "test": "mocha 'test/**/*.js'"
+    "test": "mocha 'test/**/*.js'",
+    "build": "npm run build"
   },
   "dependencies": {
     "base-64": "^1.0.0",
