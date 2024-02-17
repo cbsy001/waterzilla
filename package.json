@@ -1,17 +1,13 @@
 {
-  "name": "my-app",
+  "name": "my-amplify-app",
   "version": "1.0.0",
-  "description": " Node.js App",
+  "description": "AWS Amplify Node.js App",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
-  "dependencies": {
-    // Your dependencies here
-  },
-  "devDependencies": {
-    // Your devDependencies here
-  },
+  "dependencies": {},
+  "devDependencies": {},
   "engines": {
     "node": ">=10.0.0"
   }
