@@ -1,0 +1,237 @@
+<div class="right_col" role="main" style="min-height: 4604.8px;">
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>Staff management <small></small></h3>
+      </div>
+
+      <div class="title_right">
+        <div
+          class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search"
+        >
+        </div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+
+      <div class="col-md-12 col-sm-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+              <li><a class="close-link"><i class="fa fa-close"></i></a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card-box table-responsive">
+                  <p class="text-muted font-13 m-b-30">
+                    This is using for search, delete and manage staff function
+                  </p>
+
+                  <div
+                    id="datatable-responsive_wrapper"
+                    class="dataTables_wrapper container-fluid dt-bootstrap no-footer"
+                  >
+                    
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <table
+                          id="datatable-responsive"
+                          class="table table-striped table-bordered dt-responsive nowrap dataTable no-footer dtr-inline collapsed"
+                          cellspacing="0"
+                          width="100%"
+                          role="grid"
+                          aria-describedby="datatable-responsive_info"
+                          style="width: 100%;"
+                        >
+                          <thead>
+                            <tr role="row">
+                              <th
+                                class="sorting"
+                                tabindex="0"
+                                aria-controls="datatable-responsive"
+                                rowspan="1"
+                                colspan="1"
+                                style="width: 20%;"
+                                aria-label="Last name: activate to sort column ascending"
+                              >Name</th>
+                              <th
+                                class="sorting"
+                                tabindex="0"
+                                aria-controls="datatable-responsive"
+                                rowspan="1"
+                                colspan="1"
+                                style="width: 25%;"
+                                aria-label="Position: activate to sort column ascending"
+                              >Mail</th>
+                              <th
+                                class="sorting"
+                                tabindex="0"
+                                aria-controls="datatable-responsive"
+                                rowspan="1"
+                                colspan="1"
+                                style="width: 20%;"
+                                aria-label="Office: activate to sort column ascending"
+                              >User</th>
+                              <th
+                                class="sorting"
+                                tabindex="0"
+                                aria-controls="datatable-responsive"
+                                rowspan="1"
+                                colspan="1"
+                                style="width: 5%;"
+                                aria-label="Age: activate to sort column ascending"
+                              >Status</th>
+                              <th
+                                class="sorting"
+                                tabindex="0"
+                                aria-controls="datatable-responsive"
+                                rowspan="1"
+                                colspan="1"
+                                style="width: 5%;"
+                                aria-label="Start date: activate to sort column ascending"
+                              >Type</th>
+                              
+                              <th
+                                class="sorting"
+                                tabindex="0"
+                                aria-controls="datatable-responsive"
+                                rowspan="1"
+                                colspan="1"
+                                style="width: 20%; display: none;"
+                                aria-label="E-mail: activate to sort column ascending"
+                              >Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {{#each staffData}}
+                              <tr role="row" class="odd">
+                                <td class="{{user}}">{{name}}</td>
+                                <td class="{{user}}">{{mail}}</td>
+                                <td class="{{user}}">{{user}}</td>
+                                <td>
+                                  {{#comparingString status "noaccess"}}
+                                    <button class="btn-userRow btn-resend" data-mail="{{mail}}" data-toggle="modal" data-target="#resendNewLink">Resend</button>
+                                  {{else}}
+                                    <p class="{{user}} userStatus">{{status}}</p>
+                                  {{/comparingString}}
+                                </td>
+                                <td class="{{user}}">{{type}}</td>
+                                <td
+                                  style="display: none;"
+                                >
+                                  <button class="btn-userRow btn-toggle" data-mail="{{mail}}" data-toggle="modal" data-target="#toggle">Toggle type</button>
+                                  <button class="btn-userRow btn-viewUser" data-user="{{user}}" data-toggle="modal" data-target="#viewUser">View</button>
+                                </td>
+                              </tr>
+                              <p class="{{user}}" hidden>{{image}}</p>
+                            {{/each}}
+
+                          
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="viewUser" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="lable">User Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="" id="edImg" alt="">
+        <form>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Email</label>
+            <input type="text" class="form-control" id="edEmail" readonly ="mail">
+          </div>
+           <div class="form-group">
+            <label for="exampleFormControlInput1">User</label>
+            <input type="text" class="form-control" id="edUser" readonly ="user">
+          </div>
+           <div class="form-group">
+            <label for="exampleFormControlInput1">Name</label>
+            <input type="text" class="form-control" readonly id="edName">
+          </div>
+           <div class="form-group">
+            <label for="exampleFormControlInput1">Status</label>
+            <input type="text" class="form-control" readonly id="edStatus">
+          </div>
+           <div class="form-group">
+            <label for="exampleFormControlInput1">Type</label>
+            <input type="text" class="form-control" readonly id="edType">
+          </div>
+        </form>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="toggle" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="lable">Change status of this account?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Email: <span id="emailPlaceholderToggle"></span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-warning">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="resendNewLink" tabindex="-1" role="dialog" aria-labelledby="update" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="lable">Resend a link?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="objectToResendLinkedLogin" class="modal-body">
+        <p>Email: <span id="emailPlaceholderResend"></span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-warning">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
