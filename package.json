@@ -6,12 +6,12 @@
   "scripts": {
     "start": "node index.js"
   },
-  "dependencies": {
-    // Your dependencies here
-  },
-  "devDependencies": {
-    // Your devDependencies here
-  },
+#  "dependencies": {
+#    // Your dependencies here
+#  },
+#  "devDependencies": {
+#    // Your devDependencies here
+#  },
   "engines": {
     "node": ">=10.0.0"
   }
